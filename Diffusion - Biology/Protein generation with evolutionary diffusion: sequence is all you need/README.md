@@ -1,0 +1,19 @@
+https://www.biorxiv.org/content/10.1101/2023.09.11.556673v1
+
+**Relatedness score: 7 / 10**
+
+| What lines up with your Pareto-FM SaaS                                                                                                                                       | Evidence in the paper                                                                                                                         | Why it matters to you |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| **Protein-first, discrete-token generator.** EvoDiff corrupts and denoises amino-acid sequences with a *discrete diffusion* forward/reverse process rather than structures.  | Confirms that a sequence-space model—exactly the space your SaaS optimises—can reach state-of-the-art biological validity without 3-D inputs. |                       |
+| **Conditional design hooks already demonstrated.** The authors show **in-painting**, **motif scaffolding**, and **evolution-guided family extension** via the same network.  | Those are the kinds of programmable levers (e.g., “freeze this epitope, explore the rest”) your Pareto layer will expose to users.            |                       |
+| **Experimental wet-lab validation.** EvoDiff designs express, fold and bind in vitro for Ca²⁺ and MDM2 tasks.                                                                | Gives you marketing ammo: discrete generative models already ship hits, so customers will trust a SaaS that layers Pareto guidance on top.    |                       |
+| **IDR and disordered-region generation.** Tackles intrinsically-disordered signals that structure-based models miss.                                                         | Opens a premium feature: “design trafficking peptides / IDRs with multi-objective filters” that structure-centric competitors can’t match.    |                       |
+| **Scales to 640 M parameters with fast OADM corruption.** Shows that large discrete models remain trainable and can leverage evolutionary data.                              | Signals your own FM checkpoints could reach similar capacity, yet still be distilled for low-latency SaaS inference.                          |                       |
+
+| Where the overlap stops                                                                                                                                           | Impact on relevance                         |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| **Diffusion, not Flow-Matching.** You still supply straight-path FM objectives and <15-step inference tricks.                                                     | Keeps your proprietary tech differentiated. |
+| **Scalar or task-specific conditioning—no Pareto layer.** EvoDiff does not implement weight-vector or dominance-classifier guidance across *multiple* objectives. | Your mixed-objective slider remains unique. |
+| **No formal cost-of-evaluation framing.** Paper optimises for biological plausibility, not \$-per-assay; commercial ROI argument still on you.                    | Slightly lowers immediacy of product fit.   |
+
+**Bottom line:** EvoDiff is a strong conceptual cousin—showing that large-scale, sequence-only diffusion can drive real protein design—which you could reuse as a *baseline generator* or as a benchmark for your discrete FM. But because it lacks explicit Pareto steering and the FM inference efficiencies that define your SaaS, it lands at a **solid 7 / 10** on direct relevance.
