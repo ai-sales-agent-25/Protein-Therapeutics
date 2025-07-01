@@ -1,0 +1,20 @@
+https://arxiv.org/abs/2506.11420
+
+**Relatedness score: 7 / 10**
+
+| What lines up with your Pareto-FM SaaS                                                                                                                                                                                             | Evidence in *PPDiff*                                                                                    | Why it helps you |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ---------------- |
+| **Protein-first, generator—not just scorer.** PPDiff co-designs binder **sequence + structure** for arbitrary targets, so it could be a candidate factory or benchmarking baseline inside your platform.                           | Confirms market appetite for turnkey binder generators—the same life-science users you plan to serve.   |                  |
+| **Hybrid token + 3-D latent space.** Their “SSINC” network interleaves sequence attention with SE(3)-equivariant graph layers, showing a workable recipe for structure-aware rewards or conditioning.                              | You could adapt the idea to fuse backbone constraints (stability, clash) with your discrete FM sampler. |                  |
+| **Target-aware binder design.** Pre-training on their 700 k complex dataset plus finetunes for mini-binders & antibodies tackles exactly the wet-lab use-cases (high-affinity peptides/mini-proteins) that drive your SaaS wedge.  | Provides public data splits and metrics you can reuse for demos or paid benchmark tiers.                |                  |
+
+| Where it diverges (your moat)                                                                                                                                                                                                                                    | Impact |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| **Diffusion, not Flow-Matching.** No straight-path OT or <15-step solver shortcuts—so your latency & cost-to-serve edge remains.                                                                                                                                 |        |
+| **Single-objective optimisation.** Success metric is scalar (ipTM + pLDDT) per binder; there is **no weight-vector conditioning or dominance-classifier guidance** for simultaneous affinity ∧ immunogenicity ∧ manufacturability—the core of your Pareto layer. |        |
+| **Sequence redesign limited to binder side.** It assumes target backbone is fixed; broader HPO-style search over multiple chains or global protein properties still needs your engine.                                                                           |        |
+| **Research code, not compliance or SaaS.** The paper omits GxP/HIPAA deployment, usage-based billing, VPC isolation—business plumbing you plan to monetize.                                                                                                      |        |
+
+**Take-away**
+
+PPDiff is a strong conceptual cousin—it proves that large-scale, target-conditioned **sequence-structure generators** are feasible and valuable for binder discovery, and its hybrid architecture offers ideas you could port to Flow-Matching. But because it lacks fast FM inference and any explicit **Pareto-front steering**, it complements rather than competes with the proprietary layer (multi-objective slider, <15-step sampling, regulated SaaS deployment) that defines your protein/peptide platform—hence a solid **7 / 10** relevance.
