@@ -59,3 +59,28 @@ This is an excellent and well-executed paper that addresses a highly significant
 10. **Arnold, F.H. (2019).** Innovation by Evolution: Bringing New Chemistry to Life (Nobel Lecture).
     This citation provides the foundational context of directed evolution, the experimental predecessor to computational protein design, which motivates the entire field.
     https://doi.org/10.1002/anie.201907729
+
+==
+
+\*\*Relatedness score: \*\* **9 / 10**
+
+**Why it’s almost a perfect fit**
+
+| Alignment with your Pareto-FM SaaS                                                                                                                                                                                                                        | Evidence from the paper                                                                                                          | Relevance boost |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| **Explicitly solves the same business pain — multi-objective protein sequence design.**  MosPro frames sequence design as “property-guided sampling with Pareto optimisation,” balancing pairs like fluorescence + stability or dual binding affinities.  | Your platform’s signature feature is a real-time Pareto slider that trades off affinity, immunogenicity, manufacturability, etc. |                 |
+| **Uses *discrete token space* and Gibbs-with-Gradient sampling.**  The algorithm mutates amino-acid sequences directly, mirroring the categorical knobs in your discrete-FM generator.                                                                    | Confirms that token-level methods (without 3-D backbones) are viable and valued by wet-lab users.                                |                 |
+| **Demonstrates adaptive weight-free Pareto guidance.**  Instead of fixed scalarisation, MosPro composes gradients each round to stay on the frontier.                                                                                                     | Offers proven maths for your dominance-classifier head and slider UX.                                                            |                 |
+| **Provides open benchmark datasets & wet-lab-like metrics.**  Four tasks (GFP, ParD3, GB1) with experimental or FoldX labels give ready test beds for your SaaS demos.                                                                                    | Cuts your time-to-benchmark and de-risks marketing proofs.                                                                       |                 |
+
+**Where it still differs (keeps your moat)**
+
+| Gap vs. your roadmap                                                                                                                                                                       | Impact |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ |
+| **No Flow-Matching or fast ODE step reduction.** MosPro relies on iterative Gibbs sampling, so it can’t yet hit your “< 15 solver steps” cost target.                                      |        |
+| **Uses external property predictors, not an end-to-end generative model.** You’ll still supply the FM backbone that *learns* plausible sequences rather than starting from wild-type only. |        |
+| **Research code, no SaaS plumbing.** Compliance (GxP/HIPAA), VPC isolation, billing, and latency guarantees—the business layer you monetise—are untouched.                                 |        |
+
+**Take-away**
+
+MosPro tackles *exactly* the Pareto-optimal, multi-property challenge your SaaS is built to commercialise, proving market demand and furnishing datasets, but it lacks the Flow-Matching speed-ups and production-grade service wrapper that form your competitive edge—hence a high relevance score of **9/10**.
