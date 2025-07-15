@@ -1,0 +1,42 @@
+https://arxiv.org/abs/2506.19532
+
+**Toward the Explainability of Protein Language Models for Sequence Design**
+
+### 1. Summary and Rating
+
+This paper provides a comprehensive survey and a forward-looking perspective on the application of eXplainable Artificial Intelligence (XAI) to protein language models (pLMs), with a specific focus on generative tasks like protein design. The authors categorize existing XAI techniques based on where they draw information from within the pLM workflow: the training data, the input prompt, the model architecture, or the output sequence. More significantly, they propose a novel conceptual framework that defines five potential roles for XAI in protein research: Evaluator, Multitasker, Engineer, Coach, and Teacher. The paper argues that while the Evaluator role (using XAI to verify that models learn known biological patterns) is common, the other roles remain largely underexplored. It concludes by highlighting critical future needs, including the development of community benchmarks, domain-specific visualization tools, and a focus on risks related to security and bias, ultimately calling for a more integrated use of XAI to move beyond validation and toward genuine scientific discovery.
+
+**Rating: 9/10.** This is an excellent and timely perspective piece. For a PhD-level audience, its primary contribution is not novel experimental data but a well-structured conceptual framework for organizing and advancing a nascent, critical field. The categorization of XAI methods into four information contexts and, more importantly, the five functional roles, provides a much-needed vocabulary and roadmap for researchers. It successfully synthesizes a disparate set of studies into a coherent narrative, clearly articulating the current state, limitations, and immense future potential of making pLMs less of a "black box." It is a valuable resource for both machine learning developers and protein scientists looking to engage with model interpretability.
+
+### 2. Main Ideas
+
+1.  **A Structured Framework for XAI Application:** The paper systematically organizes XAI methods by breaking down the generative pLM workflow into four distinct "information contexts." This framework allows researchers to strategically choose XAI tools based on the question they are asking. The contexts are:
+    *   **Training Dataset:** Using methods like influence functions to understand how biases or specific examples in the training data affect model behavior.
+    *   **Input Query:** Applying feature-attribution methods (e.g., gradient-based saliency) to determine which parts of an input sequence (like a prompt) are most important for the generated output.
+    *   **Model Components:** Probing the internal architecture of the model, for instance by analyzing attention scores or neuron activations, to understand how the model represents and processes information.
+    *   **Output Sequence:** Employing perturbation-based methods like SHAP, LIME, or counterfactual generation to understand what input changes would lead to different outputs, thereby probing the model's decision boundaries.
+
+2.  **Five Functional Roles for XAI in Protein Science:** The authors distill five potential roles that XAI can fulfill, moving from simple validation to active discovery and model improvement. This framework clarifies the *purpose* of applying XAI.
+    *   **Evaluator:** The most common current role, where XAI is used to confirm that a model has learned known biological or biophysical principles (e.g., that attention maps correlate with residue contact maps).
+    *   **Multitasker:** Using the patterns discovered by the Evaluator to perform a secondary task, such as annotating previously unknown binding sites.
+    *   **Engineer:** Using insights about the model's internal workings (e.g., identifying redundant attention heads) to prune or optimize the model architecture for greater efficiency.
+    *   **Coach:** Actively steering the model during training or generation by providing feedback on its internal representations, encouraging it to focus on desirable features.
+    *   **Teacher:** The most aspirational role, where XAI is used to extract novel, human-understandable scientific principles or a "protein grammar" from the model that advances fundamental biological knowledge.
+
+3.  **A Call for Future Development in Explainable Protein Design:** The paper concludes by identifying key challenges and opportunities. It argues that for the field to advance, especially toward the "Teacher" role, the community must focus on three critical areas:
+    *   **Community Benchmarks & Robustness:** Developing standardized methods and benchmarks to evaluate the faithfulness and reliability of XAI explanations themselves.
+    *   **Domain-Specific Tooling:** Creating new visualization and analysis tools tailored to protein science, such as projecting saliency maps onto 3D protein structures instead of just 1D sequences.
+    *   **Addressing Risks:** Critically examining and using XAI to mitigate risks associated with powerful generative models, including bias, trustworthiness, and security concerns like the generation of harmful proteins.
+
+### 3. 10 Most Important Citations
+
+1.  **Madani et al. (2023)** Large language models generate functional protein sequences across diverse families. This paper is a key example of a large, generative pLM (ProGen) successfully designing functional proteins, highlighting the power of the models this survey seeks to explain. [https://doi.org/10.1038/s41587-022-01618-2](https://doi.org/10.1038/s41587-022-01618-2)
+2.  **Jumper et al. (2021)** Highly accurate protein structure prediction with AlphaFold. This landmark paper introduced a pLM that revolutionized protein structure prediction, and its embeddings are widely used in downstream tasks that are then interpreted with XAI.
+3.  **Lin et al. (2022)** Evolutionary-scale prediction of atomic level protein structure with a language model. This work introduced ESMFold, and the underlying ESM2 pLM embeddings are explicitly mentioned in the survey as a common basis for XAI applications like sparse autoencoders. [https://doi.org/10.1101/2022.07.20.500902](https://doi.org/10.1101/2022.07.20.500902)
+4.  **Vaswani et al. (2017)** Attention is All you Need. This is the foundational paper that introduced the Transformer architecture, upon which all the pLMs discussed in the survey are built.
+5.  **Barredo Arrieta et al. (2020)** Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI. This is cited as a foundational review that defines the concepts, challenges, and taxonomies of the XAI field.
+6.  **Lundberg et al. (2017)** A Unified Approach to Interpreting Model Predictions. This paper introduced SHAP (Shapley Additive Explanations), one of the most prominent XAI methods discussed in the survey for explaining model outputs by attributing importance to input features. [https://doi.org/10.48550/arXiv.1705.07874](https://doi.org/10.48550/arXiv.1705.07874)
+7.  **Ribeiro et al. (2016)** 'Why Should I Trust You?': Explaining the Predictions of Any Classifier. This work introduced LIME (Local Interpretable Model-Agnostic Explanations), a pioneering and widely used XAI technique for generating local explanations that is discussed in the survey. [https://doi.org/10.1145/2939672.2939778](https://doi.org/10.1145/2939672.2939778)
+8.  **Koh et al. (2017)** Understanding Black-box Predictions via Influence Functions. This paper is cited as the key reference for applying influence functions to deep learning, a method highlighted in the survey for understanding how training data points impact model predictions.
+9.  **Bach et al. (2015)** On Pixel-Wise Explanations for Non-Linear Classifier Decisions by Layer-Wise Relevance Propagation. This paper introduced Layer-wise Relevance Propagation (LRP), cited as a primary example of a decomposition-based XAI method that explains a prediction by analyzing internal model components.
+10. **Vig et al. (2021)** BERTology Meets Biology: Interpreting Attention in Protein Language Models. This work is a quintessential example of the "Evaluator" role, using attention analysis to show that pLMs capture biologically relevant information like contact maps and binding sites. [https://doi.org/10.48550/arXiv.2006.15222](https://doi.org/10.48550/arXiv.2006.15222)
