@@ -1,0 +1,41 @@
+https://www.biorxiv.org/content/10.1101/2025.04.15.649055v1
+
+Scaling unlocks broader generation and deeper functional understanding of proteins
+
+### 1. Summary and Rating
+
+This paper introduces ProGen3, a new family of sparse Mixture-of-Experts (MoE) generative protein language models (PLMs), scaling up to 46 billion parameters. The authors curate a massive, high-quality dataset of 3.4 billion full-length proteins (Profluent Protein Atlas v1) and systematically determine an optimal data distribution for pre-training. A central contribution is the extensive wet-lab validation of the generated proteins. The study demonstrates that increasing model scale leads to the generation of viable proteins from a much wider diversity of protein families. Furthermore, the paper shows both computationally and experimentally that larger models are more amenable to alignment with laboratory data. This alignment process significantly improves protein fitness prediction and enhances the generation of stable proteins, allowing an aligned 46B ProGen3 model to match or exceed the performance of state-of-the-art supervised methods. The core message is that scaling model and data size, combined with post-training alignment, are crucial for creating powerful and versatile foundation models for real-world protein design.
+
+**Rating: 9/10**
+
+This is a comprehensive and high-impact paper that substantially advances the field of generative protein design. The work is impressive in its scale, combining state-of-the-art deep learning engineering (a 46B MoE model), rigorous large-scale data curation, and, most critically, extensive experimental validation. The direct demonstration that model scale improves the diversity and *in vitro* viability of generated proteins provides a clear and powerful justification for the scaling hypothesis in this domain. The finding that larger models are more responsive to alignment with laboratory data is a sophisticated insight that points toward a highly effective paradigm for bespoke protein engineering. The paper sets a new standard for validating generative models in the life sciences and provides a clear roadmap for future progress.
+
+### 2. Main Ideas
+
+1.  **Scaling and Data Curation Drive Performance:** The paper establishes that scaling up both the model size (to 46B parameters) and the training dataset (to 1.5T tokens) is a primary driver of model capability. This is enabled by a compute-efficient sparse Mixture-of-Experts (MoE) architecture. Crucially, it's not just about the quantity of data but also its quality and distribution; the authors curate the Profluent Protein Atlas (PPA-1) by filtering out fragments and study various data sampling strategies, finding that a balanced "Inverse Log" distribution improves generalization to unseen protein families.
+
+2.  **Larger Models Generate More Diverse and Viable Proteins:** A key finding, supported by extensive wet-lab experiments, is that larger models are not just better at statistical metrics but produce qualitatively better outputs. As model size increases, the generated proteins cover a significantly broader range of natural protein families. These proteins, including those from families that smaller models cannot generate, are shown to express solubly *in vitro* at rates comparable to natural proteins, confirming their biological viability.
+
+3.  **Alignment with Lab Data Unlocks a Model's Full Potential:** The paper demonstrates that the true advantage of large-scale models is realized through alignment with experimental data. While zero-shot performance on some fitness prediction benchmarks can plateau or even degrade with scale, larger models show a much greater improvement when aligned using techniques like Iterative Reasoning Preference Optimization (IRPO). This alignment not only improves fitness prediction for distant variants but also enhances the *in silico* and *in vitro* stability of the proteins the model generates, making them more powerful and flexible tools for specific design tasks.
+
+### 3. Top 10 Most Important Citations
+
+1.  **Kaplan et al. 2020.** Scaling laws for neural language models. This work is foundational to the paper's investigation of compute-optimal scaling, providing the original framework for predicting model performance based on model size and data size, which the authors adapt for sparse PLMs. [https://arxiv.org/abs/2001.08361](https://arxiv.org/abs/2001.08361)
+
+2.  **Hoffmann et al. 2022.** Training compute-optimal large language models. This paper refined scaling laws, demonstrating the importance of scaling data size in tandem with model size, a core principle followed by the authors in training the ProGen3 family.
+
+3.  **Shazeer et al. 2017.** Outrageously large neural networks: The sparsely-gated mixture-of-experts layer. This is the foundational paper for the Mixture-of-Experts (MoE) architecture, the key technology that allows ProGen3 to scale to 46 billion parameters in a compute-efficient manner. [https://openreview.net/forum?id=B1ckMDqlg](https://openreview.net/forum?id=B1ckMDqlg)
+
+4.  **Madani et al. 2023.** Large language models generate functional protein sequences across diverse families. This paper introduced ProGen, the predecessor to ProGen3, establishing the viability of using large autoregressive models for generating diverse and functional proteins, setting the stage for the scaling experiments in the current work. [https://doi.org/10.1038/s41587-022-01618-2](https://doi.org/10.1038/s41587-022-01618-2)
+
+5.  **Hayes et al. 2025.** Simulating 500 million years of evolution with a language model. This paper describes ESM3, a frontier dense PLM, and its associated dataset, which serves as a key point of comparison for ProGen3's data curation strategy and model scale. [https://doi.org/10.1126/science.ads0018](https://doi.org/10.1126/science.ads0018)
+
+6.  **Notin et al. 2023.** ProteinGym: Large-scale benchmarks for protein fitness prediction and design. This is the primary benchmark used in the paper to evaluate and compare the zero-shot and aligned fitness prediction capabilities of the ProGen3 models against other methods. [https://proceedings.neurips.cc/paper\_files/paper/2023/file/cac723e5ff29f65e3fcbb0739ae91bee-Paper-Datasets\_and\_Benchmarks.pdf](https://proceedings.neurips.cc/paper_files/paper/2023/file/cac723e5ff29f65e3fcbb0739ae91bee-Paper-Datasets_and_Benchmarks.pdf)
+
+7.  **Pang et al. 2024.** Iterative reasoning preference optimization. This paper introduces IRPO, the specific direct alignment algorithm used to fine-tune ProGen3 models on experimental data, which is shown to be crucial for unlocking the performance of larger models. [https://proceedings.neurips.cc/paper\_files/paper/2024/file/d37c9ad425fe5b65304d500c6edcba00-Paper-Conference.pdf](https://proceedings.neurips.cc/paper_files/paper/2024/file/d37c9ad425fe5b65304d500c6edcba00-Paper-Conference.pdf)
+
+8.  **Cabantous et al. 2005.** Protein tagging and detection with engineered self-assembling fragments of green fluorescent protein. This work provides the foundational technology for the split-GFP assay, which is the high-throughput wet-lab method used extensively in the paper to experimentally measure the soluble expression of generated proteins. [https://doi.org/10.1038/nbt1044](https://doi.org/10.1038/nbt1044)
+
+9.  **Lin et al. 2023.** Evolutionary-scale prediction of atomic-level protein structure with a language model. This is the paper for ESMFold, the protein structure prediction model used throughout the study to analyze the structures of generated proteins and select diverse candidates for experimental validation. [https://www.science.org/doi/abs/10.1126/science.ade2574](https://www.science.org/doi/abs/10.1126/science.ade2574)
+
+10. **Weinstein et al. 2022.** Non-identifiability and the blessings of misspecification in models of molecular fitness. This paper provides a theoretical basis for the observation that simply building a better model of natural protein distributions (i.e., lowering validation loss) does not guarantee better zero-shot fitness prediction, a key hypothesis the authors confirm and address via alignment. [https://openreview.net/forum?id=CwG-o0ind6t](https://openreview.net/forum?id=CwG-o0ind6t)
