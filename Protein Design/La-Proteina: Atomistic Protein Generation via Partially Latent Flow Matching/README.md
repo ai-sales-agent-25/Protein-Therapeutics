@@ -2,6 +2,14 @@ https://arxiv.org/abs/2507.09466
 
 https://x.com/NVIDIAHealth/status/1945196670162989431
 
+https://x.com/tomasgeffner/status/1945136059047682082
+
+https://x.com/Mattmcpartlon1/status/1945171155482239082
+
+https://x.com/karsten_kreis/status/1945143193613557943
+
+https://x.com/DidiKieran/status/1945143695638245877
+
 La-Proteina: Atomistic Protein Generation via Partially Latent Flow Matching
 
 ### 1. Summary and Rating
